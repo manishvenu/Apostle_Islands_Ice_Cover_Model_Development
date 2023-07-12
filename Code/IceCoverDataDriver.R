@@ -1,42 +1,42 @@
-################################################################################################
-## LOAD LIBRARIES
-################################################################################################
-
+#----------------------------------------------------------------------------------------------
+# LOAD LIBRARIES
+#----------------------------------------------------------------------------------------------
 
 library(tidyverse)
-source("Code/GeneralHelpers.R")
-source("Code/IceCoverDataHelperss.R")
+source("Code/CodeHelpers/GeneralHelpers.R")
+source("Code/CodeHelpers/IceCoverDataHelpers.R")
 
 
 
-#################INTRODUCTION######################
+#----------------------------------------------------------------------------------------------
+# INTRODUCTION
+#----------------------------------------------------------------------------------------------
 
 # The Great Lakes Ice Cover Data needs to be processed into just Apostle Islands Ice Cover Data
-# It is the biggest time element in the entire project. BUT, it only needs to be done one time per area, in our case, the Apostle Islands
+# It is the biggest time suck in the entire project. BUT, it only needs to be done one time per area (The Apostle Islands).
 # This is the code that does it. 
 
-######################DOWNLOAD ICE COVER DATA (ONLY REQUIRED ONCE)##########################################
+#----------------------------------------------------------------------------------------------
+# DOWNLOAD ICE COVER DATA
+#----------------------------------------------------------------------------------------------
 # These functions download the yearly zip archives of ice cover data and unzips the data. 
 # The unzip function is the main slow part, and it does run into errors, so may have to run this multiple times.
-# It is fairly slow, if you would like to do it manually, follow the below steps
-
-
-
-
-# If you would like to do this manually, head to https://www.glerl.noaa.gov/data/ice/#historical 
-# and download the data by year
-# Extract the zip files into a specific directory, and set that directory to the variable "data_dir".
-# Add the specific years you have to the "ice_years_of_interest" variable
+# It is fairly slow, if you would like to do it manually, follow the below steps:
+# 1. Head to https://www.glerl.noaa.gov/data/ice/#historical  and download the data by year ASCII files (comes as .zip)
+# 2. Extract the zip files into a specific directory (That directory should have the extracted folder called grid[YEAR]), and set that directory to the variable "data_dir".
+# 3. Add the specific years you extracted to the "ice_years_of_interest" variable
 #That's all the following code does
 
-set_working_directory_to_project_file()
+set_working_directory_to_project_file() # This function doesn't do anything, it's just a reminder for you to do that.
 check_for_and_create_data_folder()
 data_dir = create_ice_cover_data_folder()
 ice_years_of_interest = c(2015:2022)
 download_ice_cover_data_by_year(ice_years_of_interest,data_dir)
 
 
-##################PROCESS ICE COVER DATA############################
+#----------------------------------------------------------------------------------------------
+# PROCESS ICE COVER DATA
+#----------------------------------------------------------------------------------------------
 
 
 ## Set up arrays of data ##

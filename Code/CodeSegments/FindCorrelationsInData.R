@@ -1,6 +1,7 @@
-###############Assess correlation of teleconnection indices:#####################################################
-
-## NOTE: code below calculates serial and auto correlation among teleconnections (tele_data_c)
+#----------------------------------------------------------------------------------------------
+# ASSESS CORRELATION OF TELECONNECTION AND LOCAL DATA
+#----------------------------------------------------------------------------------------------
+# NOTE: code below calculates serial and auto correlation among teleconnections (tele_data_c)
 # AND correlation between teleconnections and ice cover (cor_ice_tele);
 # we only use tele_data_c and telpair in our paper.
 cor_ice_tele = array(NA,dim=c(11,5))
@@ -13,11 +14,9 @@ for(i in 1:10){
   colnames(telepair)<-paste(monthnames,".",telenames[i], sep = "")
   tryCatch({
     for(j in 1:5)	{
-      
       cor_ice_tele[i,j]<-cor(date_num,telepair[,j],use='pairwise')
     }
   }, error=function(e){cat("ERROR :",conditionMessage(e), "\n")})
-  
   print(cor_ice_tele)
   print(i)
 }
@@ -25,10 +24,15 @@ colnames(cor_ice_tele)<-c("aug","sep","oct","nov","dec")
 cor_ice_tele<-t(cor_ice_tele)
 
 
-################# Plots! ###############
+#----------------------------------------------------------------------------------------------
+# PLOT TELECONNECTION CORRELATIOn (TAKES TIME)
+#----------------------------------------------------------------------------------------------
 #source(file.path(plot_code_dir,"TeleconnectionCorrelationPlotCode.R")) #Commented out because it takes a long time
 
-################# Manually place relevant teleconnections ###################
+#----------------------------------------------------------------------------------------------
+# MANUALLY ASSIGN TELECONNECTION AND LOCAL DATA TO DATAFRAME
+#----------------------------------------------------------------------------------------------`  
+`
 nino3.4 = which(colnames(tele)=="aug.nino3.4")
 aug.AMO = which(colnames(tele)=="aug.AMO")
 aug.OLR = which(colnames(tele)=="aug.OLR")

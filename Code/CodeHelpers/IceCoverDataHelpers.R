@@ -1,8 +1,12 @@
-
-library(progress)
 source("Code/helpers.R")
 
-
+# Description:
+# This function downloads ice data by year from GLERL (Great Lakes Environmental Research Lab). It then checks and unzips the data. It is very slow!!
+# Parameters:
+#   1. Ice_Year_Vector: For what years do we want to download ice data for
+#   2. data_dir: Where do you put the downloaded data
+# Returns:
+#   Nothing!
 download_ice_cover_data_by_year <- function(ice_year_vector,data_dir) {
   download_link_url_start = "https://www.glerl.noaa.gov/data/ice/glicd/grids/grid"
   
@@ -57,11 +61,10 @@ download_ice_cover_data_by_year <- function(ice_year_vector,data_dir) {
       unzip(zipfile = file_end_path, exdir = output_zip_files, overwrite = FALSE)
     }
     print("Successfully Finished Downloading Data")
-    
-    
   }
 }
 
+# This function created an "IceCoverData" folder if it doesn't already exist.
 create_ice_cover_data_folder<- function() {
   print("Creating Ice Cover Data Folder")
   if (!dir.exists("Data/IceCoverData")) {

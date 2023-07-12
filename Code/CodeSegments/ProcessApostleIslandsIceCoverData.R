@@ -1,3 +1,5 @@
+
+## Read in ice cover data
 daily.ice = read.csv(file.path(data_dir,"dailyIceCover.csv"), header = FALSE, sep = ",")
 
 ## Remove months after May and before November
@@ -12,13 +14,13 @@ for (i in 1:length(daily.ice$V1)){
 }
 daily.ice=daily.ice[-del.index,]
 
-## Create the 10-day average and the day (after December 1st) when ice cover goes over 90% ## 
+## Create the 10-day rolling average and find the day (after December 1st) when ice cover goes over 90% every year ## 
 rownames(daily.ice)<-seq(1,length(daily.ice$V1),1)
 daily.ice<-daily.ice[,c(-2,-3)]
-daily.ice$V6=array(NA)												# create a new column to make the 10day average
-colnames(daily.ice)<-c("day_number","year","ice","avg10day_ice")	# the first date of solid ice
-date_num=array(NA)
-avg10day.max=array(NA)												# max of 10day average in each year
+daily.ice$V6=array(NA)						                       						# create a new column to make the 10day average
+colnames(daily.ice)<-c("day_number","year","ice","avg10day_ice")
+date_num=array(NA)                                                  # Where we store the first day of "solid" ice, or 90% ice cover.
+avg10day.max=array(NA)							                      					# max of rolling average in each year
 month1 <- c(12,1,2,3,4,5)
 
 for (i in first_year:last_year){ 
@@ -30,16 +32,16 @@ for (i in first_year:last_year){
       count=count+1
     }
   }
-  for (k in 1:(length(yr.index)-9)){
+  for (k in 1:(length(yr.index)-9)){ # This is the rolling average loop
     daily.ice$avg10day_ice[yr.index[1]+k+8]=(sum((daily.ice$ice)[(yr.index[1]-1+k):(yr.index[1]+8+k)]))/10 #Calculation of Average
   }
-  for (l in 10:length(yr.index)){
+  for (l in 10:length(yr.index)){    # This is the over 90% ice cover loop
     if(daily.ice$avg10day_ice[yr.index[l]]>=90){
       date_num[i-first_year+1]=daily.ice$day_number[yr.index[l]]
       break
     }
   }
-  avg10day.max[i-first_year+1]=max(na.omit(daily.ice$avg10day_ice[yr.index[1]:yr.index[k+9]]))
+  avg10day.max[i-first_year+1]=max(na.omit(daily.ice$avg10day_ice[yr.index[1]:yr.index[k+9]])) # This is the day of maximum ice cover
   x=i
   
 }

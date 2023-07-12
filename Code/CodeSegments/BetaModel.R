@@ -1,9 +1,9 @@
 
-###################################################
-###################################################
-###################################################
-################# REGRESSION MODELS: Beta #########
-###################################################
+#----------------------------------------------------------------------------------------------
+# REGRESSSION MODEL: BETA DEVELOPMENT
+#----------------------------------------------------------------------------------------------
+library(HDInterval)
+
 ###################################################
 ## Yin/Ayumi Model
 #cols = c("aug.nao","sep.nao","aug.nino3.4","aug.pna","sep.pna","oct.pna","nov.pna","dec.pna"
@@ -18,6 +18,10 @@
 # (see snippet at end of this file for unused method using stepGAIC)
 
 ###################################################
+
+#----------------------------------------------------------------------------------------------
+# SET UP BETA CALIBRATION
+#----------------------------------------------------------------------------------------------
 
 ### Set up 'gamlss' model object using all possible explanatory variables (teleall)
 
@@ -63,15 +67,15 @@ summary(beta.expert)
 beta.expert = betareg(avg10day.max~.,data=tele[temp_cols.manual])
 summary(beta.expert)
 
-###############################################################
+#----------------------------------------------------------------------------------------------
+# FULL PERIOD CALCULATIONS
+#----------------------------------------------------------------------------------------------
 
 #mod.beta.max = beta.man.5  # Enter which model to plot and evaluate here....
 mod.beta.max = beta.expert
 # ## betareg function, unfortunately does not (!) have uncertainty bounds, 
 # ## so we calculate them manually through mu, phi (alpha, beta)
 
-##
-library(HDInterval)
 
 mu 		<- predict(mod.beta.max)
 phi 	= mod.beta.max$coefficients$precision
@@ -94,7 +98,9 @@ pr_pr_beta  = pbeta(0.9,alpha,beta)						# predicted probability of NO safe ice 
 
 
 
-######### Beta model with change point#######################################################################################
+#----------------------------------------------------------------------------------------------
+# SPLIT PERIOD CALCULATIONS
+#----------------------------------------------------------------------------------------------
 
 pr_pr_beta_cpt=array(NA)
 
@@ -128,9 +134,11 @@ alpha_cpt_a	= mu_cpt_a*phi_cpt_a
 beta_cpt_a	= (1-mu_cpt_a)*phi_cpt_a
 pr_pr_beta_cpt[25:number_of_years] = unlist(pbeta(0.9,alpha_cpt_a,beta_cpt_a))
 
-#######################. Beta model: cross-validation#########################################################################
-
+#----------------------------------------------------------------------------------------------
+# CROSS VALIDATION
+#----------------------------------------------------------------------------------------------
 # cross validation for mode of whole time period
+
 pr_pr_beta_cv = array(NA)
 ndb_cv = as.data.frame(cbind(teleall[,c(5,7, 8,12, 13, 14,15,18, 21)]))
 

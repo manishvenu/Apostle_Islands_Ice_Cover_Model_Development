@@ -2,7 +2,7 @@ library(utils)
 library(here)
 
 
-
+# This function creates a folder named "Data" in the directory if it doesn't exist
 check_for_and_create_data_folder <- function() {
   print("Creating Data Directory")
   
@@ -12,7 +12,7 @@ check_for_and_create_data_folder <- function() {
   
 }
 
-
+# This function sets the directory to one level up IF the currenty directory name is Code, R, or Scripts. It is not really used.
 set_working_directory_to_project_file <- function() {
   print("Setting Working Directory to project file")
   
@@ -35,6 +35,7 @@ set_working_directory_to_project_file <- function() {
   }
 }
 
+# Sets the working directory to the current file, also not really used.
 set_working_directory_to_current_file = function () {
   # tryCatch(
   #   expr = {
@@ -52,7 +53,7 @@ set_working_directory_to_current_file = function () {
   
 }
 
-
+# Tests!
 test <- function() {
   set_working_directory_to_current_file()
 }

@@ -1,5 +1,10 @@
-#BUILDING TELECONNECTIONS DATA SET --------
-#######. SOI Data########
+#BUILDING TELECONNECTION AND LOCAL DATA SET --------
+
+
+
+#----------------------------------------------------------------------------------------------
+# Southern Oscillation Index
+#----------------------------------------------------------------------------------------------
 
 url <- "https://www.esrl.noaa.gov/psd/data/correlation/soi.data" 
 SOI_data_raw = scan(url, what = "double()", sep = "")
@@ -29,7 +34,9 @@ for (i in 1:length(sorted_SOI_data[,1])) {
   }
 }
 
-###########. NAO Data ########
+#----------------------------------------------------------------------------------------------
+# North Atlantic Oscillation
+#----------------------------------------------------------------------------------------------
 
 url <- "https://www.esrl.noaa.gov/psd/data/correlation/nao.data" 
 NAO_data_raw = scan(url, what = "double()", sep = "")
@@ -59,7 +66,9 @@ for (i in 1:length(sorted_NAO_data[,1])) {
   }
 }
 
-#######. EL NINO Data ##########
+#----------------------------------------------------------------------------------------------
+# NINO3.4 Index
+#----------------------------------------------------------------------------------------------
 
 url <- "https://www.esrl.noaa.gov/psd/gcos_wgsp/Timeseries/Data/nino34.long.anom.data" 
 
@@ -90,7 +99,10 @@ for (i in 1:length(sorted_NINO_data[,1])) {
   }
 }
 
-##########. AO Data #########
+#----------------------------------------------------------------------------------------------
+# ARTIC OSCILLATION
+#----------------------------------------------------------------------------------------------
+
 url <- "https://www.cpc.ncep.noaa.gov/products/precip/CWlink/daily_ao_index/monthly.ao.index.b50.current.ascii" 
 ao_ASCII = scan(url, what = "double()", sep = "")
 other_list_AO = array(NA)
@@ -103,8 +115,9 @@ for (i in seq(1,length(ao_ASCII),3)) {
 }
 list_AO_data = other_list_AO
 
-#########. PDO Data #########
-
+#----------------------------------------------------------------------------------------------
+# PACIFIC DECADAL OSCILLATION
+#----------------------------------------------------------------------------------------------
 
 url <- "https://www.esrl.noaa.gov/psd/gcos_wgsp/Timeseries/Data/pdo.long.data" 
 PDO_data_raw = scan(url, what = "double()", sep = "")
@@ -134,7 +147,9 @@ for (i in 1:length(sorted_PDO_data[,1])) {
   }
 }
 
-########. PNA Data #########
+#----------------------------------------------------------------------------------------------
+# PACIFIC-NORTH AMERICAN PATTERN
+#----------------------------------------------------------------------------------------------
 
 url <- "https://www.esrl.noaa.gov/psd/data/correlation/pna.data" 
 PNA_data_raw = scan(url, what = "double()", sep = "")
@@ -164,7 +179,9 @@ for (i in 1:length(sorted_PNA_data[,1])) {
   }
 }
 
-#######. Air Temp For Duluth #######
+#----------------------------------------------------------------------------------------------
+# DULUTH AIR TEMPERATURE
+#----------------------------------------------------------------------------------------------
 
 airTmp_raw = read.csv(file.path(data_dir,"DuluthAirTemp1972_2021.csv"))
 airTmp_raw = airTmp_raw[,-1]
@@ -176,7 +193,9 @@ for (i in 1:length(airTmp_raw[,1])) {
     counter = counter + 1
   }
 }
-#######. Water temperature, Lake Superior ########
+#----------------------------------------------------------------------------------------------
+# LAKE SUPERIOR SURFACE WATER TEMPERATURE
+#----------------------------------------------------------------------------------------------
 
 water_temp_raw = read.csv(file.path(data_dir,"ModeledWaterTemperatureStitch.csv"))
 water_temp_raw = water_temp_raw[,-1]
@@ -189,7 +208,9 @@ for (i in 1:length(water_temp_raw[,1])) {
     counter = counter + 1
   }
 }
-#######. AWSSI ########
+#----------------------------------------------------------------------------------------------
+# ACCUMULATED WINTER SEASON SEVERITY INDEX
+#----------------------------------------------------------------------------------------------
 
 url = "https://mrcc.purdue.edu/AWSSI/RAWSSI/rawssi.DLHthr.csv"
 awssi_very_raw = read.csv(url,sep="\t")
@@ -208,7 +229,9 @@ for (i in 2:length(awssi_very_raw)) {
 awssi=awssi_raw
 awssi[246:250] = awssi_raw[245] #Hold up for 2021
 
-#######. EP-NP ########
+#----------------------------------------------------------------------------------------------
+# EAST PACIFIC _ NORTH PACIFIC, EPO
+#----------------------------------------------------------------------------------------------
 
 url = "https://psl.noaa.gov/data/correlation/epo.data"
 EPO_data_raw = scan(url, what = "double()", sep = "")
@@ -237,7 +260,11 @@ for (i in 1:length(sorted_EPO_data[,1])) {
     list_counter_1 = list_counter_1 + 1
   }
 }
-#######. TNH ########
+
+#----------------------------------------------------------------------------------------------
+# TROPICAL/NORTHERN HEMISPHERE
+#----------------------------------------------------------------------------------------------
+
 tnh_raw = read.csv(file.path(data_dir,"TNH.csv"))
 tnh_raw = tnh_raw[,-1]
 tnh = array(NA)
@@ -248,7 +275,11 @@ for (i in 1:length(tnh_raw[,1])) {
     counter = counter + 1
   }
 }
-#######. OLR ########
+
+#----------------------------------------------------------------------------------------------
+# OUTGOING LONGWAVE RADIATION (EL NINO)
+#----------------------------------------------------------------------------------------------
+
 OLR_raw = read.csv(file.path(data_dir,"OLR.csv"))
 OLR_raw = OLR_raw[,-1]
 OLR = array(NA)
@@ -259,7 +290,11 @@ for (i in 1:length(OLR_raw[,1])) {
     counter = counter + 1
   }
 }
-#######. AMO ########
+
+#----------------------------------------------------------------------------------------------
+# ATLANTIC MULTIDECADAL OSCILLATION
+#----------------------------------------------------------------------------------------------
+
 AMO_raw = read.csv(file.path(data_dir,"AMO.csv"))
 AMO_raw = AMO_raw[,-1]
 AMO = array(NA)
@@ -270,12 +305,23 @@ for (i in 1:length(AMO_raw[,1])) {
     counter = counter + 1
   }
 }
-########. year Data ########
+
+#----------------------------------------------------------------------------------------------
+# YEAR COLUMN
+#----------------------------------------------------------------------------------------------
+
 year_column = rep(x = c((first_year-1):last_year), times = 1, each = 5)
-#######. Month Data ########
+
+#----------------------------------------------------------------------------------------------
+# MONTH COLUMN
+#----------------------------------------------------------------------------------------------
+
 month_column = rep(x = c(8:12), times = length(year_column) / 5, each = 1)
 
-#######. Build Data Table #######
+#----------------------------------------------------------------------------------------------
+# BUILD DATA TABLE
+#----------------------------------------------------------------------------------------------
+
 tele_data2 = list(year = year_column, 
                   month = month_column, 
                   ao = list_AO_data,
