@@ -25,8 +25,8 @@ Run only the main code with the already compiled ice cover data:
 
 To recreate the project from scratch:
 1. Open the project in RStudio with the .Rproj file
-2. ****THIS TAKES A LONG TIME***** Run the Code/IceCoverDataDriver.R File. This collects the ice cover data for the Apostle Islands
-3. This runs all other scripts.
+2. ****THIS TAKES A LONG TIME**** Run the Code/IceCoverDataDriver.R File. This collects the ice cover data for the Apostle Islands
+3. Run the Code/ModelDriver.R File. This runs all other scripts.
 
 ### Contributing
 
