@@ -12,7 +12,8 @@ This repo is a compilation of the code used for the Apostle Islands Ice Cover Mo
 
 ### Installation
 
-[Clone the Repo](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) 
+1. [Clone the Repo](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) 
+2. Install Required Packages (See Code/ModelDriver.R for required libraries) 
 
 ### Repo Organization
 
