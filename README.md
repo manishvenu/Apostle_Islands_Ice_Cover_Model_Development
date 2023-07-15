@@ -15,6 +15,19 @@ This repo is a compilation of the code used for the Apostle Islands Ice Cover Mo
 1. [Clone the Repo](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) 
 2. Open the ".RProj" file in RStudio. (Make sure your R version is around 4.2.2) With 'renv', it should install the necessary packages.
 
+### Usage
+
+This project was run with RStudio on Windows 11 (Verified with most updated versions of R, RStudio, and Windows on 7/11/2023). There are two ways to run this project.
+
+PREFERRED: Run only the main code with the already compiled ice cover data:
+1. Open the project in RStudio with the .Rproj file
+2. Source the Code/ModelDriver.R File. This runs all other scripts.
+
+POSSIBLE: To recreate the project from scratch:
+1. Open the project in RStudio with the .Rproj file
+2. ****THIS TAKES A LONG TIME**** Source the Code/IceCoverDataDriver.R File. This collects the ice cover data for the Apostle Islands
+3. Run the Code/ModelDriver.R File. This runs all other scripts.
+
 ### Repo Organization
 
 #### Code
@@ -27,20 +40,6 @@ This is where all the input data is stored. You need the main spreadsheets in th
 
 #### Plots
 This is where output plots are written to. There are already plots here to show you what theoutput is supposed to look like (will be overwritten when you run the code)
-
-### Usage
-
-This project was run with RStudio on Windows 11 (Verified with most updated versions of RStudio and Windows on 7/11/2023). There are two ways to run this project.
-
-PREFERRED: Run only the main code with the already compiled ice cover data:
-1. Open the project in RStudio with the .Rproj file
-2. Source the Code/ModelDriver.R File. This runs all other scripts.
-
-
-POSSIBLE: To recreate the project from scratch:
-1. Open the project in RStudio with the .Rproj file
-2. ****THIS TAKES A LONG TIME**** Source the Code/IceCoverDataDriver.R File. This collects the ice cover data for the Apostle Islands
-3. Run the Code/ModelDriver.R File. This runs all other scripts.
 
 ## Contributing
 
