@@ -23,7 +23,8 @@ library(kableExtra)
 library(gt)
 library(paletteer)
 library(here)
-
+library(HDInterval)
+library(utils)
 #----------------------------------------------------------------------------------------------
 # CREATE FILE PATHS
 #----------------------------------------------------------------------------------------------
