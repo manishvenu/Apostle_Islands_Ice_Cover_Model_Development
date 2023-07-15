@@ -13,7 +13,7 @@ This repo is a compilation of the code used for the Apostle Islands Ice Cover Mo
 ### Installation
 
 1. [Clone the Repo](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) 
-2. Install Required Packages (See Code/ModelDriver.R for required libraries) 
+2. Open the ".RProj" file in RStudio. (Make sure your R version is around 4.2.2) With 'renv', it should install the necessary packages.
 
 ### Repo Organization
 
