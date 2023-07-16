@@ -1,4 +1,3 @@
-source("Code/helpers.R")
 
 # Description:
 # This function downloads ice data by year from GLERL (Great Lakes Environmental Research Lab). It then checks and unzips the data. It is very slow!!
@@ -53,15 +52,16 @@ download_ice_cover_data_by_year <- function(ice_year_vector,data_dir) {
         break
       }
     }
-    
     ## If not all files exist, unzip the file ##
     if (!all_files_found) {
-      output_text = paste0("Unzipping zip archive from ",list_zip_file$Name[1]," to ",list_zip_file$Name[length(list_zip_file$Name)]," (takes a long time)....")
+      output_text = paste0("Unzipping zip archive from ",list_zip_files$Name[1]," to ",list_zip_files$Name[length(list_zip_files$Name)]," (takes a long time)....")
       print(output_text)
       unzip(zipfile = file_end_path, exdir = output_zip_files, overwrite = FALSE)
     }
-    print("Successfully Finished Downloading Data")
+    print("Successfully finished downloading theyearly  data")
   }
+  print("Successfully Finished Downloading ALL Data")
+  
 }
 
 # This function created an "IceCoverData" folder if it doesn't already exist.

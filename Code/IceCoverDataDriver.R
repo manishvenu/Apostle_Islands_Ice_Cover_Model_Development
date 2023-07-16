@@ -3,6 +3,7 @@
 #----------------------------------------------------------------------------------------------
 
 library(tidyverse)
+library(lubridate)
 source("Code/CodeHelpers/GeneralHelpers.R")
 source("Code/CodeHelpers/IceCoverDataHelpers.R")
 
@@ -30,7 +31,7 @@ source("Code/CodeHelpers/IceCoverDataHelpers.R")
 set_working_directory_to_project_file() # This function doesn't do anything, it's just a reminder for you to do that.
 check_for_and_create_data_folder()
 data_dir = create_ice_cover_data_folder()
-ice_years_of_interest = c(2015:2022)
+ice_years_of_interest = c(1973:2022)
 download_ice_cover_data_by_year(ice_years_of_interest,data_dir)
 
 
@@ -55,12 +56,15 @@ if (file.exists("Data/dailyIceCover.csv")) {
   end_year =  year(ymd(dates[length(dates)]))
   
   ## Remove years of interest that are already in output spreadsheet ##
-  for (year_index in seq_along(ice_years_of_interest)){
-    if (!(ice_years_of_interest[year_index]<start_year) | !(ice_years_of_interest[year_index]>end_year) ) {
-      ice_years_of_interest = ice_years_of_interest[-year_index]
-      print(paste("Removed:",ice_years_of_interest[year_index]))
+  ice_years_removal_iterator = ice_years_of_interest
+  removal_years = c()
+  for (year_index in seq_along(ice_years_removal_iterator)){
+    if (!(ice_years_removal_iterator[year_index]<start_year) | !(ice_years_removal_iterator[year_index]>end_year) ) {
+      removal_years = c(removal_years,year_index)
+      print(paste("Removed:",ice_years_removal_iterator[year_index]))
     }
   }
+  ice_years_of_interest = ice_years_removal_iterator[-removal_years]
   
 }
 counter=length(dates)+1
@@ -110,5 +114,4 @@ for (cur_ice_year in ice_years_of_interest) {
 dates = ymd(dates)
 days_from_december_first= 100 - interval(dates,dates[which(month(dates)==12 & day(dates) ==1)])/days(1)
 final = data.frame(DaysfromDecemberFirst = days_from_december_first,month = month(dates),day = day(dates),year = year(dates),IceCover = daily_avg_adj)
-file_output_name = file.path("Data",paste0(daily))
 write.table(final, file = "Data/dailyIceCover.csv",  col.names=FALSE, row.names = FALSE)
