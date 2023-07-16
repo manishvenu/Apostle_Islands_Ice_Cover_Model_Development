@@ -10,7 +10,7 @@ As of the current version, the code in this repository is fully functional and c
 
 1. Usage and Argument Handling: It is important to provide the appropriate arguments and use the code as intended to ensure accurate results. The code does not currently include almost any error handling for invalid inputs. We recommend reading the paper to understand the correct usage.
 
-2. Code Comments and Documentation: There are inline comments and basic documentation, there may be areas that require further clarification. We are  working on improving the comments and documentation to enhance code readability!
+2. Code Comments and Documentation: There are inline comments and basic documentation, but there may be areas that require further clarification. We are  working on improving the comments and documentation to enhance code readability!
 
 3. Testing and Validation: The code has undergone testing by us. However, additional testing and validation by external users is not yet done.
 
@@ -23,8 +23,8 @@ To get started with the Apostle Islands Ice Cover Model, please follow the steps
 
 ### Installation
 
-1. [Clone the Repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) : Begin by cloning this repository to your local machine. You can do this by clicking on the green "Code" button in the repo or by running the following command in your terminal if you have ssh:
-	git clone https://github.com/manishrv123/Apostle_Islands_Ice_Cover_Model_Development.git
+1. [Clone the Repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) : Begin by cloning this repository to your local machine. You can do this by clicking on the green "Code" button in the repo and following the steps there. If you have ssh, it'll look like this:
+    git clone https://github.com/manishrv123/Apostle_Islands_Ice_Cover_Model_Development.git
 2. Open the Project in RStudio: Once the repository is cloned, navigate to the project directory and open the ".RProj" file using RStudio. Ensure that you have R version 4.2.2 (roughly, it's not an exact science hah) installed on your system.
 3. Package Installation: The necessary packages and dependencies will be managed using the 'renv' package. Upon opening the project in RStudio, 'renv' will automatically detect the project environment and install the required packages. If prompted, confirm the installation of missing packages.
 4. If you encounter any issues during the installation process, please reach out to manishrv@umich.edu
