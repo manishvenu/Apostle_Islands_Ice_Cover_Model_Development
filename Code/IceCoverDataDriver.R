@@ -114,4 +114,4 @@ for (cur_ice_year in ice_years_of_interest) {
 dates = ymd(dates)
 days_from_december_first= 100 - interval(dates,dates[which(month(dates)==12 & day(dates) ==1)])/days(1)
 final = data.frame(DaysfromDecemberFirst = days_from_december_first,month = month(dates),day = day(dates),year = year(dates),IceCover = daily_avg_adj)
-write.table(final, file = "Data/dailyIceCover.csv",  col.names=FALSE, row.names = FALSE)
+write.table(final, file = "Data/dailyIceCover.csv",sep=",",col.names=FALSE, row.names = FALSE)

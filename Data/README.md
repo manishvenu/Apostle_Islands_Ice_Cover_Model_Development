@@ -22,4 +22,7 @@ Public Site: https://www.ncei.noaa.gov/access/monitoring/enso/olr
 ## TNH
 1. Raw Data: https://www.cpc.ncep.noaa.gov/data/teledoc/tnh.shtml -> Access the ftp: ftp://ftp.cpc.ncep.noaa.gov/wd52dg/data/indices/tnh_index.tim
 2. Adjusments: None
+
+# IceCoverData Folder
+1. Projected size of all ice cover data is slightly less than 30 GB. Running the ice cover driver will download that much. Doing a smaller run of a coupe years of ice_years_of_interest could be much more manageable and confirm reproducibility.
 	
