@@ -2,7 +2,7 @@
 
 This repository contains the code used for the development of the Apostle Islands Ice Cover Model, which serves as a companion to the research paper currently under review in Geophysical Research Letters (GRL). It provides the necessary code and data to reproduce the findings and results presented in the paper.
 
-The Apostle Islands Ice Cover Model is designed to simulate and forecast ice cover dynamics in the Apostle Islands region of the Great Lakes. It incorporates various teleconnections and local data to predict ice cover. The code in this repository represents the implementation of the model, along with the necessary data processing and analysis steps.
+The Apostle Islands Ice Cover Model is designed to forecast ice cover in the Apostle Islands region of the Great Lakes. It incorporates various teleconnections and local data to predict ice cover. The code in this repository represents the implementation of the model, along with the necessary data processing and analysis steps.
 
 ## Current Status
 
@@ -19,8 +19,6 @@ Please feel free to reach out if you have any questions, encounter any issues
 ## Getting Started
 To get started with the Apostle Islands Ice Cover Model, please follow the steps below:
 
-
-
 ### Installation
 
 1. [Clone the Repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository): Begin by cloning this repository to your local machine. You can do this by clicking on the green "Code" button in the repo and following the steps there. If you have ssh, it'll look like this:
@@ -31,7 +29,7 @@ To get started with the Apostle Islands Ice Cover Model, please follow the steps
 
 ### Usage
 
-The model was run with RStudio on Windows 11 (Verified with most updated versions of R, RStudio, and Windows on 7/11/2023). There are two ways to run this project.
+The model was run with RStudio on Windows 11 (Verified with the most updated versions of R, RStudio, and Windows on 7/11/2023). There are two ways to run this project.
 
 Preferred Method: Run the Model with Precompiled Ice Cover Data
 
@@ -72,4 +70,4 @@ Updates to the code base come from this paper's authors.
 
 ## Contact
 
-If you have any questions or feedback, please feel free to contact the corresponding author: drewgron@umich.edu. In case of github-specific issues, contact manishrv@umich.edu
+If you have any questions or feedback, please feel free to contact the corresponding author: drewgron@umich.edu. In case of GitHub-specific issues, contact manishrv@umich.edu
