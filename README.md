@@ -10,10 +10,12 @@ To get started with the Apostle Islands Ice Cover Model, please follow the steps
 ### Installation
 
 1. [Clone the Repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository): Begin by cloning this repository to your local machine. You can do this by clicking on the green "Code" button in the repo and following the steps there. If you have ssh, it'll look like this:
-    git clone git@github.com:manishrv123/Apostle_Islands_Ice_Cover_Model_Development.git
-2. **Open the Project in RStudio**: Once the repository is cloned, navigate to the project directory and open the ".RProj" file using RStudio. Ensure that you have R version 4.2.2 (roughly, it's not an exact science hah) installed on your system.
-3. **Package Installation**: The necessary packages and dependencies will be managed using the 'renv' package. Upon opening the project in RStudio, 'renv' will automatically detect the project environment and install the required packages. If prompted, confirm the installation of missing packages.
-4. **If it doesn't work**: If you encounter any issues during the installation process, please reach out to manishrv@umich.edu
+```
+   git clone git@github.com:manishrv123/Apostle_Islands_Ice_Cover_Model_Development.git
+```
+3. **Open the Project in RStudio**: Once the repository is cloned, navigate to the project directory and open the ".RProj" file using RStudio. Ensure that you have R version 4.2.2 (roughly, it's not an exact science hah) installed on your system.
+4. **Package Installation**: The necessary packages and dependencies will be managed using the 'renv' package. Upon opening the project in RStudio, 'renv' will automatically detect the project environment and install the required packages. If prompted, confirm the installation of missing packages.
+5. **If it doesn't work**: If you encounter any issues during the installation process, please reach out to manishrv@umich.edu
 
 ### Usage
 
