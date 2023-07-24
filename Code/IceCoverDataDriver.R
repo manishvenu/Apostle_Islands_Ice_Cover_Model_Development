@@ -43,7 +43,7 @@ download_ice_cover_data_by_year(ice_years_of_interest,data_dir)
 ## Set up arrays of data ##
 dates=array(NA)
 daily_avg_adj= array(NA)
-counter=1
+counter=0
 
 
 ## Check if the Output Ice Cover Data file exists and how much data is already in it## 
@@ -67,6 +67,7 @@ if (file.exists("Data/dailyIceCover.csv")) {
   ice_years_of_interest = ice_years_removal_iterator[-removal_years]
   
 }
+
 counter=length(dates)+1
 ## Read in Coordinates file for ice cover data ##
 latitude = as.numeric(scan("Data/IceCoverData/1024_latgrid.txt", what = "double()"))
@@ -96,6 +97,7 @@ for (cur_ice_year in ice_years_of_interest) {
     ## Subset to area of interest ## 
     region_ice_cover = as.numeric(ice_data_raw[index_array])
     
+
     ## Remove Values with no data ##
     No_Data = -99 
     land_value = -1
@@ -112,6 +114,25 @@ for (cur_ice_year in ice_years_of_interest) {
 
 
 dates = ymd(dates)
-days_from_december_first= 100 - interval(dates,dates[which(month(dates)==12 & day(dates) ==1)])/days(1)
+days_from_december_first = array(NA)
+for (i in unique(year(dates))) {
+  if (!is.na(i)) {
+    for (d in seq_along(dates)) {
+      if (!is.na(dates[d]) & year(dates[d])==i) {
+        if (month(dates[d])>9) {
+          dec1 = ymd(paste0(i,"12","01"))
+        } else {
+          dec1 = ymd(paste0(i-1,"12","01"))
+        }
+        interv= 100 + interval(dec1,dates[d])/days(1)
+        days_from_december_first[d] = interv
+      }else if (!is.na(dates[d]) & year(dates[d])>i) {
+        print("Moving on to new year")
+        break
+      }
+      
+    }     
+  }
+}
 final = data.frame(DaysfromDecemberFirst = days_from_december_first,month = month(dates),day = day(dates),year = year(dates),IceCover = daily_avg_adj)
 write.table(final, file = "Data/dailyIceCover.csv",sep=",",col.names=FALSE, row.names = FALSE)

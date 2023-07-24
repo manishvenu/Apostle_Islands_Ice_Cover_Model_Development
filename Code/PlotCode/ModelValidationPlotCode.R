@@ -17,7 +17,7 @@ dev.off()
 
 
 if (export_plots_to_plots_folder) {
-  plotname=file.path(plot_dir,"2_var_validation_stepwise.pdf") #Comment for SIP
+  plotname=file.path(plot_dir,"validation_stepwise.pdf") #Comment for SIP
   pdf(file=plotname, width = 7.5, height = 5, paper = "special") #Comment for SIP
   
 }

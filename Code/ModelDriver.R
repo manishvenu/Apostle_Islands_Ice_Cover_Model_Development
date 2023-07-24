@@ -30,7 +30,7 @@ library(utils)
 #----------------------------------------------------------------------------------------------
 
 data_dir = "Data/"
-plot_dir = "Plots/"
+plot_dir = "Plots/Development/WithNewData/"
 code_dir = "Code/"
 code_segment_dir = "Code/CodeSegments/"
 plot_code_dir = "Code/PlotCode/"
@@ -65,7 +65,7 @@ print("Set Globals")
 last_year = 2022
 first_year = 1973
 number_of_years = last_year - first_year+1
-export_plots_to_plots_folder=FALSE
+export_plots_to_plots_folder=TRUE
 
 #----------------------------------------------------------------------------------------------
 # PROCESS APOSTLE ISLANDS ICE COVER DATA
@@ -95,7 +95,8 @@ source(file.path(plot_code_dir,"DateofSeasonalIceOnsetPlotCode.R"))
 # Fix avg10day ice 0 and 1 problem so that can be used in gamlss model by formula (y*(n-1)+0.5) 
 
 avg10day.max=avg10day.max*0.01
-
+all_100 = which(avg10day.max==1)
+avg10day.max[all_100] = 0.99999
 #----------------------------------------------------------------------------------------------
 # GATHER TELECONNECTION AND LOCAL DATA
 #----------------------------------------------------------------------------------------------

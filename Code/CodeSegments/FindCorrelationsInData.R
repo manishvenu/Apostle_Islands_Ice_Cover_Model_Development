@@ -32,7 +32,7 @@ cor_ice_tele<-t(cor_ice_tele)
 #----------------------------------------------------------------------------------------------
 # MANUALLY ASSIGN TELECONNECTION AND LOCAL DATA TO DATAFRAME
 #----------------------------------------------------------------------------------------------`  
-`
+# `
 nino3.4 = which(colnames(tele)=="aug.nino3.4")
 aug.AMO = which(colnames(tele)=="aug.AMO")
 aug.OLR = which(colnames(tele)=="aug.OLR")
@@ -55,13 +55,13 @@ telecolnames <-names(tele)
 teleall = cbind(tele)	# [use this only for indices; not used],c(rep(1,24),rep(0,19)))
 names(teleall) = c(telecolnames)
 
-if (nrow(teleall)>length(date_num)) #if teleconnection data has more years than ice data, this bit erases the extra years of teleconnection data
-{
-  x=0
-  for(i in nrow(teleall):length(date_num)+1)
-  {
-    teleall = teleall[-i,] 
-    x=x+1
-  }
-  print(paste0(x,  " years were taken off the teleconnection index"))
-}
+# if (nrow(teleall)>length(date_num)) #if teleconnection data has more years than ice data, this bit erases the extra years of teleconnection data
+# {
+#   x=0
+#   for(i in nrow(teleall):length(date_num)+1)
+#   {
+#     teleall = teleall[-i,] 
+#     x=x+1
+#   }
+#   print(paste0(x,  " years were taken off the teleconnection index"))
+# }
