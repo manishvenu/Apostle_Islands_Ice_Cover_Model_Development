@@ -40,7 +40,6 @@ code_helpers_dir = "Code/CodeHelpers/"
 # SET CORRECT WORKING DIRECTORIES
 #----------------------------------------------------------------------------------------------
 
-
 print(here()) # Set Working Directory to Project File -> Make sure the output here is set to the same directory level as the project folder
 source(file.path(code_helpers_dir,"GeneralHelpers.R")) # Holds useful helper functions
 
@@ -65,7 +64,7 @@ print("Set Globals")
 last_year = 2022
 first_year = 1973
 number_of_years = last_year - first_year+1
-export_plots_to_plots_folder=TRUE
+export_plots_to_plots_folder=FALSE
 
 #----------------------------------------------------------------------------------------------
 # PROCESS APOSTLE ISLANDS ICE COVER DATA
