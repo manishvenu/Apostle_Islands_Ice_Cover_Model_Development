@@ -52,6 +52,6 @@ rsconnect/
 Data/IceCoverData/
 
 # Development Saved Folder
-Data/Development/
-Plots/Development/
-Code/Development/
+# Data/Development/
+# Plots/Development/
+# Code/Development/
