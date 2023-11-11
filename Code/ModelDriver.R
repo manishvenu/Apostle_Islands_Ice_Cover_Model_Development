@@ -30,7 +30,7 @@ library(utils)
 #----------------------------------------------------------------------------------------------
 
 data_dir = "Data/"
-plot_dir = "Plots/Development/WithNewData/"
+plot_dir = "Plots/"
 code_dir = "Code/"
 code_segment_dir = "Code/CodeSegments/"
 plot_code_dir = "Code/PlotCode/"
@@ -64,7 +64,7 @@ print("Set Globals")
 last_year = 2022
 first_year = 1973
 number_of_years = last_year - first_year+1
-export_plots_to_plots_folder=FALSE
+export_plots_to_plots_folder=TRUE
 
 #----------------------------------------------------------------------------------------------
 # PROCESS APOSTLE ISLANDS ICE COVER DATA

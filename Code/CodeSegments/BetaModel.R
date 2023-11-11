@@ -56,7 +56,7 @@ summary(beta.man.5)
 
 ## Third, combination of model selection and expert opinion
 
-temp_cols.manual = c("sep.airTemp","aug.waterTmp","nov.epo")  			# Results of manual regression
+temp_cols.manual = c("aug.waterTmp","sep.epo")  			# Results of manual regression
 
 temp_cols.exp = c("dec.airTemp","nov.ao","aug.AMO","dec.OLR","sep.epo") ## Expert opinion variables
 
