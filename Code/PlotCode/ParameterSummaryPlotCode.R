@@ -42,12 +42,12 @@ for(i in 1:4){
 
 plot(x = c(-0.8,0.8), y = c(0.5,4.5), type = "n", ylim = c(4.5,0.5),
      axes = F, xlab = "", ylab = ""); box(); axis(1)
-axis(4, at = seq(1,3), 
-     labels = c(expression("T"[a]*" (Sep)"), expression("T"[w]*" (Aug)"), "EP-NP (Nov)"),
+axis(4, at = seq(1,2), 
+     labels = c(expression("T"[w]*" (Aug)"), "EP-NP (Sep)"),
      las = 1)
 abline(v = 0, lty = 3)
 
-for(i in 1:3){
+for(i in 1:2){
   points(x = mod.beta.max$coeff$mean[i+1], y = i-0.2, pch = 20)	
   segments(	x0 = confint(mod.beta.max)[i+1,1],
             x1 = confint(mod.beta.max)[i+1,2],
