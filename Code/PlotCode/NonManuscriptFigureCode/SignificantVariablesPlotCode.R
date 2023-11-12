@@ -1,7 +1,7 @@
 
 plotting_function <- function(label,data) {
   if (export_plots_to_plots_folder) {
-    plotname=file.path(plot_dir,paste0("SV_",label,".pdf")) #Comment to SIP 
+    plotname=file.path(plot_unused_dir,paste0("SV_",label,".pdf")) #Comment to SIP 
     pdf(file=plotname, height = 4, width = 6.5, paper = "special") #Comment to SIP
   }
   par(mfrow = c(1,1))

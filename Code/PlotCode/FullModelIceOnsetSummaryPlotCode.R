@@ -1,7 +1,7 @@
 ##########################################################
 #PLOT with Model Data----
 ##########################################################
-
+library(Cairo)
 beta_alarm=array(NA)
 obsnoice = array(NA)
 for (i in 1:length(date_num)) {
@@ -34,8 +34,8 @@ for (prob_index in seq_along(cox_probs_cpt)) {
 }
 
 if (export_plots_to_plots_folder) {
-  plotname=file.path(plot_dir,"Cox_and_Beta_as_yearly_predictor_mixed_iceonset.pdf")
-  pdf(file=plotname, height = 8, width = 8.5, paper = "special") 
+  plotname=file.path(plot_dir,"ice_onset_model_summary.pdf")
+  CairoPDF(file=plotname, height = 8, width = 8.5, paper = "special") 
   
 }
 par(mfrow = c(2,1))
@@ -56,7 +56,7 @@ legend(x = "topleft",legend=c(	"Observed ice onset date",
                                "No observed ice onset",
                                "No simulated ice onset (beta)"),
        col=c("black", "darkgrey", "blue"),
-       pch=c(16, 15, 15), bty = 'n', cex=0.98,ncol=1)
+       pch=c(16, -124, -124), bty = 'n', cex=0.98,ncol=1)
 
 
 plot	(date_num, type = "n", axes = FALSE, ylim = c(20, 105), xlim = c(1,number_of_years), ylab = '', xlab = ''); box()
@@ -75,7 +75,7 @@ legend(x = "topleft",legend=c(	"Observed ice onset date",
                                "No observed ice onset",
                                "No simulated ice onset (Cox)"),
        col=c("black", "red", "darkgrey","red"),
-       pch=c(16, 21, 15, 15), bty = 'n', cex=0.98,ncol=1)
+       pch=c(16, 21, -124, -124), bty = 'n', cex=0.98,ncol=1)
 if (export_plots_to_plots_folder) {
   dev.off() 
   

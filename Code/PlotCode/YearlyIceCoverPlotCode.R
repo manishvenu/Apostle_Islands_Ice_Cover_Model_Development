@@ -1,5 +1,5 @@
 if (export_plots_to_plots_folder) {
-  plotname=   file.path(plot_dir,"daily_ice_cover_split_by_year.pdf")
+  plotname=   file.path(plot_dir,"yearly_ice_cover.pdf")
   pdf(file=plotname, height = 6, width = 9, paper = "special")
 }
   par(mfrow = c(5, 10))

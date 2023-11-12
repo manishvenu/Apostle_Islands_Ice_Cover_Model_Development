@@ -2,7 +2,7 @@
 
 new.seg = date_num-date_cox_cpt; new.seg
 if(export_plots_to_plots_folder) {
-  plotname=file.path(plot_dir,"summaryCoxBetaOld.pdf") 
+  plotname=file.path(plot_unused_dir,"summaryCoxBetaOld.pdf") 
   pdf(file=plotname, height = 4, width = 6.5, paper = "special")
   
 }

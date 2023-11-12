@@ -1,6 +1,6 @@
 ####ROC Curves - Skill Test #### Note: Not part of manuscript
 if (export_plots_to_plots_folder) {
-  plotname=file.path(plot_dir,"5_Var_ROC_2022.pdf") 
+  plotname=file.path(plot_unused_dir,"5_Var_ROC_2022.pdf") 
   pdf(file=plotname, height = 6.5, width = 6.5, paper = "special") 
   
 }

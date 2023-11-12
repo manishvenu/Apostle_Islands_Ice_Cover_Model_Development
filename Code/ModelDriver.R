@@ -31,9 +31,11 @@ library(utils)
 
 data_dir = "Data/"
 plot_dir = "Plots/"
+plot_unused_dir = "Plots/NonManuscriptFigures/"
 code_dir = "Code/"
 code_segment_dir = "Code/CodeSegments/"
 plot_code_dir = "Code/PlotCode/"
+plot_code_unused_dir = "Code/PlotCode/NonManuscriptFigureCode/"
 code_helpers_dir = "Code/CodeHelpers/"
 
 #----------------------------------------------------------------------------------------------
@@ -110,7 +112,7 @@ source(file.path(code_segment_dir,"GatherTeleconnectionsAndLocalData.R"))
 # Plots:
 # 1. This plots the Teleconnections and Local Data through the years
 print("Plotting Teleconnection Data")
-source(file.path(plot_code_dir,"TeleconnectionPlotCode.R"))
+source(file.path(plot_code_unused_dir,"TeleconnectionPlotCode.R"))
 
 #----------------------------------------------------------------------------------------------
 # ASSESS CORRELATION OF INPUT DATA
@@ -135,7 +137,7 @@ source(file.path(code_segment_dir,"CoxModel.R"))
 
 print("Running Beta Model Steps")
 source(file.path(code_segment_dir,"BetaModel.R"))
-source(file.path(plot_code_dir,"BetaModelMaximumPlotCode.R"))
+source(file.path(plot_code_unused_dir,"BetaModelMaximumPlotCode.R"))
 
 #----------------------------------------------------------------------------------------------
 # RUN CONCLUDING PLOTS
@@ -154,7 +156,7 @@ print("Final Plots")
 source(file.path(plot_code_dir,"ParameterSummaryPlotCode.R"))
 source(file.path(plot_code_dir,"YearlyCoxBetaPlotCode.R"))
 source(file.path(plot_code_dir,"ModelValidationPlotCode.R"))
-source(file.path(plot_code_dir,"SummaryCoxBetaOld.R"))
+source(file.path(plot_code_unused_dir,"SummaryCoxBetaOld.R"))
 source(file.path(plot_code_dir,"FullModelIceOnsetSummaryPlotCode.R"))
 #source(file.path(plot_code_dir,"ROCCurvePlotCode.R")) 
 

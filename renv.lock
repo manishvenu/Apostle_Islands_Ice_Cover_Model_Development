@@ -9,6 +9,18 @@
     ]
   },
   "Packages": {
+    "Cairo": {
+      "Package": "Cairo",
+      "Version": "1.6-1",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Requirements": [
+        "R",
+        "grDevices",
+        "graphics"
+      ],
+      "Hash": "612c222e9a0369705e56ee482d201137"
+    },
     "DBI": {
       "Package": "DBI",
       "Version": "1.1.3",

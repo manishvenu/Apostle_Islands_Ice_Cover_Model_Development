@@ -1,7 +1,7 @@
 ###################PLOT: date of seasonal ice onset###############################################
 ### NOTE: This figure is unused in the 2022 manuscript
 if (export_plots_to_plots_folder) {
-  plotname=file.path(plot_dir,"Date of Seasonal Ice Onset.pdf") #Comment to SIP 
+  plotname=file.path(plot_dir,"ice_onset.pdf") #Comment to SIP 
   pdf(file=plotname, height = 4, width = 6.5, paper = "special") #Comment to SIP
 }
   par(mar = c(3,4,1,1))

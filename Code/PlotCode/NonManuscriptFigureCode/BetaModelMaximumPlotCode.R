@@ -1,7 +1,7 @@
 ############# PLOT: beta model maximum of 10-day average ice cover#########################################################
 
 if (export_plots_to_plots_folder) {
-  plotname=file.path(plot_dir,"Beta_model_Seasonal_Max_Ice cover.pdf") #Comment for SIP
+  plotname=file.path(plot_unused_dir,"Beta_model_Seasonal_Max_Ice cover.pdf") #Comment for SIP
   pdf(file=plotname, height = 4.5, width = 8, paper = "special") #Comment for SIP
   
 }

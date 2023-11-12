@@ -1,7 +1,7 @@
 
 
 if(export_plots_to_plots_folder) {
-  plotname=file.path(plot_dir,"Yearly_Cox_Beta_Obs.pdf") #Comment for SIP
+  plotname=file.path(plot_dir,"yearly_cox_beta_obs.pdf") #Comment for SIP
   pdf(file=plotname, height = 6, width = 9, paper = "special") #Comment for SIP
   
 }

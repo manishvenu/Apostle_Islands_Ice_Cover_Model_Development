@@ -1,6 +1,6 @@
 ###################PLOT: teleconnection indices##########################################################
 if (export_plots_to_plots_folder) {
-  plotname = file.path(plot_dir, "telec_index.pdf") #Comment to SIP
+  plotname = file.path(plot_unused_dir, "telec_index.pdf") #Comment to SIP
   pdf(file=plotname) #Comment to SIP
 }
 
