@@ -87,8 +87,8 @@ source(file.path(code_segment_dir,"ProcessApostleIslandsIceCoverData.R"))
 # 2. The second file just plots the date_num array. That's the date every year that ice cover exceeds 90% 10-day rolling average.
 
 print("Plotting Ice Cover Data")
-source(file.path(plot_code_dir,"DailyIceCoverSplitByYearPlotCode.R"))
-source(file.path(plot_code_dir,"DateofSeasonalIceOnsetPlotCode.R"))
+source(file.path(plot_code_dir,"YearlyIceCoverPlotCode.R"))
+source(file.path(plot_code_dir,"IceOnsetPlotCode.R"))
 
 #----------------------------------------------------------------------------------------------
 # FIX OUTPUT DATASET FOR USE LATER ON

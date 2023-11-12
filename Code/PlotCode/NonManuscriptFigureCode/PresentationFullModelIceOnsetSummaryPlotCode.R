@@ -13,7 +13,7 @@ for (i in 1:length(date_num)) {
     obsnoice[i] = 0
   }
 }
-for (i in 1:length(pr_pr_beta))
+for (i in 1:length(pr_pr_beta_cpt))
 {
   if(pr_pr_beta[i] < 0.50)
   {
