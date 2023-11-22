@@ -55,28 +55,26 @@ for (i in seq_along(station_nums_of_interest)) {
   data = tmax[which(tmax$station_num == station_nums_of_interest[i]), ]
   
   #Iterate in 30 year increments
-  thirty_year_seq = seq(first_year, last_year, 30)
-  thirty_year_seq[length(thirty_year_seq)] = last_year
+  thirty_year_seq_end = c(2020,2010,2000,1990,1980,1970)
+  thirty_year_seq_start = c(2020-30,2010-30,2000-30,1990-30,1980-30,1970-30)
+  
+  if (export_plots_to_plots_folder) {
+    filename = paste0(station_names[i],"_hist.pdf")
+    plotname = file.path("Plots/ClimateDivisionHistograms/", filename) #Comment to SIP
+    pdf(file=plotname,width=12,height=10,paper="special") #Comment to SIP
+  }
+  par(mfcol= c(6, 3))
+  par(mar = c(0, 0, 0, 0))
+  par(oma = c(5, 4, 5, 4))
+  for (m in c(12,1,2)) {
 
-  for (m in c(1,2,12)) {
-    if (export_plots_to_plots_folder) {
-      filename = paste0(station_names[i],"_",month.abb[m],"_hist.pdf")
-      plotname = file.path("Plots/ClimateDivisionHistograms/", filename) #Comment to SIP
-      pdf(file=plotname,width=12,height=8,paper="special") #Comment to SIP
-    }
-    par(mfrow = c(4, 1))
-    par(mar = c(0, 0, 0, 0))
-    par(oma = c(5, 4, 5, 4))
-    for (y in seq_along(thirty_year_seq)) {
-      if (y == length(thirty_year_seq)) {
-        next
-      }
-      years_of_interest_index = which (data$Year > thirty_year_seq[y] &
-                                         data$Year < thirty_year_seq[y + 1])
+    for (y in seq_along(thirty_year_seq_start)) {
+      years_of_interest_index = which (data$Year > thirty_year_seq_start[y] &
+                                         data$Year < thirty_year_seq_end[y])
       description = paste0(
-        thirty_year_seq[y],
+        thirty_year_seq_start[y],
         " to ",
-        thirty_year_seq[y + 1]
+        thirty_year_seq_end[y]
       )
       
       hist(
@@ -84,31 +82,38 @@ for (i in seq_along(station_nums_of_interest)) {
         main = "",
         ylab = "Count",
         xlab = "Temperatures (F)",
-        breaks = seq(-2,40,2)
-        ,ylim=c(0,10),
-        xlim = c(-2, 40),
+        breaks = seq(-2,42,2)
+        ,ylim=c(0,12),
+        xlim = c(-2, 42),
         axes = F,
-        col = "lightgrey"
+        col = "grey"
       )
-      put.fig.letter(description)
-      if (y %% 2 == 1) {
+      axis(1,labels=F)
+      
+      if (y==1) {
+        mtext((month.name[m]), side = 3,line=1)
+      }
+      if (y %% 2 == 1 & m==12) {
         axis(2)
-      } else {
+      } else if(y %% 2 == 0 & m==2) {
         axis(4)
+      } else if (y %% 2 == 1 & m==2) {
+        mtext(description, side = 4,line=2)
+        } else if (y %% 2 == 0 & m==12) {
+          mtext(description, side = 2,line=2)        
       }
       if (y == 4) {
         axis(1)
         mtext("Temperature (\u00B0F)", side = 1,line=3,
               outer = TRUE)
-        mtext(paste("Division",station_names[i],month.name[m],"Temperature Histograms"), side = 3,line=3,
-              outer = TRUE)
       }
       box()
     }
-    if (export_plots_to_plots_folder) {
-      dev.off() #Comment to SIP
-      
-    }
+    mtext(paste(station_names[i],"Climate Division","Maximum Temperature Histograms"), side = 3,line=3,
+          outer = TRUE)
+  }
+  if (export_plots_to_plots_folder) {
+    dev.off() #Comment to SIP
     
   }
   
