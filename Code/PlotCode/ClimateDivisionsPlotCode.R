@@ -65,7 +65,7 @@ for (i in seq_along(station_nums_of_interest)) {
   }
   par(mfcol= c(6, 3))
   par(mar = c(0, 0, 0, 0))
-  par(oma = c(5, 4, 5, 4))
+  par(oma = c(5, 10, 5, 4))
   for (m in c(12,1,2)) {
 
     for (y in seq_along(thirty_year_seq_start)) {
@@ -76,20 +76,36 @@ for (i in seq_along(station_nums_of_interest)) {
         " to ",
         thirty_year_seq_end[y]
       )
-      
-      hist(
+      if ( m==12) {
+        x_min = 8
+        x_max = 36
+      } else if (m==1){
+        x_min = 6
+        x_max = 34
+      }else {
+        x_min = 14
+        x_max = 42
+      }
+
+      h = hist(
         data[years_of_interest_index,m+1],
         main = "",
         ylab = "Count",
         xlab = "Temperatures (F)",
         breaks = seq(-2,42,2)
-        ,ylim=c(0,12),
-        xlim = c(-2, 42),
+        ,ylim=c(0,11),
+        xlim = c(x_min, x_max),
         axes = F,
         col = "grey"
       )
       axis(1,labels=F)
+      abline(v=mean(data[years_of_interest_index,m+1]),col="red")
+      g = data[years_of_interest_index,m+1]
+      xfit <- seq(x_min, x_max, length = 40) 
+      yfit <- dnorm(xfit, mean = mean(g), sd = sd(g)) 
+      yfit <- yfit * diff(h$mids[1:2]) * length(g) 
       
+      lines(xfit, yfit, col = "black", lwd = 2)
       if (y==1) {
         mtext((month.name[m]), side = 3,line=1)
       }
@@ -97,12 +113,12 @@ for (i in seq_along(station_nums_of_interest)) {
         axis(2)
       } else if(y %% 2 == 0 & m==2) {
         axis(4)
-      } else if (y %% 2 == 1 & m==2) {
-        mtext(description, side = 4,line=2)
-        } else if (y %% 2 == 0 & m==12) {
-          mtext(description, side = 2,line=2)        
-      }
-      if (y == 4) {
+      } 
+      if (m==12) {
+        
+        mtext(description, side = 2,line=6)
+        }
+      if (y == 6) {
         axis(1)
         mtext("Temperature (\u00B0F)", side = 1,line=3,
               outer = TRUE)
@@ -112,6 +128,10 @@ for (i in seq_along(station_nums_of_interest)) {
     mtext(paste(station_names[i],"Climate Division","Maximum Temperature Histograms"), side = 3,line=3,
           outer = TRUE)
   }
+  par(fig=c(0, 1, 0, 1), oma=c(0, 0, 0, 0), mar=c(0, 0, 0, 0), new=TRUE)
+  plot(0, 0, type='n', bty='n', xaxt='n', yaxt='n')
+  legend_name = c("Mean","Fitted Normal Distribution")
+  legend(-1.07,1.07,bty="n", xpd = TRUE,legend =legend_name,lty=c(1,1),col=c("red","black"),cex=1,border=FALSE, title = "Y-axis represents count of maximum temperatures")
   if (export_plots_to_plots_folder) {
     dev.off() #Comment to SIP
     
