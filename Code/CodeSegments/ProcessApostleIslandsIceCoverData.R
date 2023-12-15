@@ -5,7 +5,6 @@ daily.ice = read.csv(file.path(data_dir,"dailyIceCover.csv"), header = FALSE, se
 # Erase any NA rows, should only be the first row.
 daily.ice = na.omit(daily.ice)
 
-
 ## Remove months after May and before November
 del.index=array(NA)
 ind.ct=1

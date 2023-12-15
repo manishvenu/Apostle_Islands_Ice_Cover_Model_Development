@@ -14,8 +14,8 @@ if (export_plots_to_plots_folder) {
         count=count+1
       }
     }
-    plot(daily.ice$ice[yr.index], type = "l",xlim = c(0, 210),ylim = c(0, 120), axes=FALSE, xlab=''); box()
-    lines(daily.ice$avg10day_ice[yr.index], col = "red")
+    plot(daily.ice$day_number[yr.index],daily.ice$ice[yr.index], type = "l",xlim = c(0, 210),ylim = c(0, 120), axes=FALSE, xlab=''); box()
+    lines(daily.ice$day_number[yr.index],daily.ice$avg10day_ice[yr.index], col = "red")
     abline(h = 90, col = "blue")
     text(x=175,y=110,i, cex = 0.9)
     if((i-1983)%%20==0){

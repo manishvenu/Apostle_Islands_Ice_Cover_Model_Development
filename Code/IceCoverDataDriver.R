@@ -48,7 +48,7 @@ counter=0
 
 ## Check if the Output Ice Cover Data file exists and how much data is already in it## 
 
-if (file.exists("Data/dailyIceCover.csv")) {
+if (file.exists("Data/dailyIceCoverRedo.csv")) {
   daily.ice = read.csv('Data/dailyIceCover.csv', header = FALSE, sep = ",") 
   dates = sprintf("%04d%02d%02d", daily.ice$V4,daily.ice$V2,daily.ice$V3)
   daily_avg_adj = daily.ice$V5
@@ -135,4 +135,4 @@ for (i in unique(year(dates))) {
   }
 }
 final = data.frame(DaysfromDecemberFirst = days_from_december_first,month = month(dates),day = day(dates),year = year(dates),IceCover = daily_avg_adj)
-write.table(final, file = "Data/dailyIceCover.csv",sep=",",col.names=FALSE, row.names = FALSE)
+write.table(final, file = "Data/dailyIceCoverRedo.csv",sep=",",col.names=FALSE, row.names = FALSE)
