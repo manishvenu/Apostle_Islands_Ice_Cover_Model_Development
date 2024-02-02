@@ -63,8 +63,8 @@ temp_cols.exp = c("dec.airTemp","nov.ao","aug.AMO","dec.OLR","sep.epo") ## Exper
 beta.expert = betareg(avg10day.max~.,data=tele[temp_cols.exp])
 summary(beta.expert)
 
-#beta.expert = betareg(avg10day.max~.,data=tele[temp_cols.manual])
-#summary(beta.expert)
+beta.expert = betareg(avg10day.max~.,data=tele[temp_cols.manual])
+summary(beta.expert)
 
 #----------------------------------------------------------------------------------------------
 # FULL PERIOD CALCULATIONS
