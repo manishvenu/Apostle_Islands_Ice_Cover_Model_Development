@@ -1,10 +1,12 @@
 library(lubridate)
 library(stringr)
 
-
-max_temperature_data_link = "https://www.ncei.noaa.gov/data/nclimdiv-monthly/access/climdiv-tmaxdv-v1.0.0-20231106"
+## Update date at end of hyperlink below
+max_temperature_data_link = "https://www.ncei.noaa.gov/data/nclimdiv-monthly/access/climdiv-tmaxdv-v1.0.0-20240105"
 tmax = read.table(max_temperature_data_link, header = F)
 names(tmax) = c("Year", month.abb[1:12])
+
+export_plots_to_plots_folder = T  # Normally set in wrapper script
 
 ########### FUNCTION FROM SOMEONE ELSE: https://waterprogramming.wordpress.com/2015/12/02/easy-labels-for-multi-panel-plots-in-r/#############################
 put.fig.letter <-
@@ -60,14 +62,14 @@ for (i in seq_along(station_nums_of_interest)) {
   
   if (export_plots_to_plots_folder) {
     filename = paste0(station_names[i],"_hist.pdf")
-    plotname = file.path("Plots/ClimateDivisionHistograms/", filename) #Comment to SIP
+    plotname = file.path("Q:/Hydro/writing/submitted/apostle_islands_redux_manish/R/r_apis_dec2023","Plots/ClimateDivisionHistograms/", filename) #Comment to SIP
     pdf(file=plotname,width=12,height=10,paper="special") #Comment to SIP
   }
   par(mfcol= c(6, 3))
   par(mar = c(0, 0, 0, 0))
   par(oma = c(5, 10, 5, 4))
   for (m in c(12,1,2)) {
-
+    
     for (y in seq_along(thirty_year_seq_start)) {
       years_of_interest_index = which (data$Year > thirty_year_seq_start[y] &
                                          data$Year < thirty_year_seq_end[y])
@@ -77,16 +79,16 @@ for (i in seq_along(station_nums_of_interest)) {
         thirty_year_seq_end[y]
       )
       if ( m==12) {
-        x_min = 8
-        x_max = 36
+        x_min = -10
+        x_max = 50
       } else if (m==1){
-        x_min = 6
-        x_max = 34
+        x_min = -10
+        x_max = 50
       }else {
-        x_min = 14
-        x_max = 42
+        x_min = -10
+        x_max = 50
       }
-
+      
       h = hist(
         data[years_of_interest_index,m+1],
         main = "",
@@ -99,7 +101,8 @@ for (i in seq_along(station_nums_of_interest)) {
         col = "grey"
       )
       axis(1,labels=F)
-      abline(v=mean(data[years_of_interest_index,m+1]),col="red")
+      #abline(v=mean(data[years_of_interest_index,m+1]),col="red")
+      abline(v = 32, col = "red")
       g = data[years_of_interest_index,m+1]
       xfit <- seq(x_min, x_max, length = 40) 
       yfit <- dnorm(xfit, mean = mean(g), sd = sd(g)) 
@@ -117,7 +120,7 @@ for (i in seq_along(station_nums_of_interest)) {
       if (m==12) {
         
         mtext(description, side = 2,line=6)
-        }
+      }
       if (y == 6) {
         axis(1)
         mtext("Temperature (\u00B0F)", side = 1,line=3,
