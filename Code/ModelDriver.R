@@ -44,8 +44,6 @@ code_helpers_dir = "Code/CodeHelpers/"
 # SET CORRECT WORKING DIRECTORIES
 #----------------------------------------------------------------------------------------------
 
-setwd("Q:/Hydro/writing/submitted/apostle_islands_redux_manish/R/r_apis_feb2024")
-
 print(here()) # Set Working Directory to Project File -> Make sure the output here is set to the same directory level as the project folder
 source(file.path(code_helpers_dir,"GeneralHelpers.R")) # Holds useful helper functions
 
