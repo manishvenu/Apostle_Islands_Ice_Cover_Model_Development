@@ -1,3 +1,4 @@
+*.Identifier
 # History files
 .Rhistory
 .Rapp.history

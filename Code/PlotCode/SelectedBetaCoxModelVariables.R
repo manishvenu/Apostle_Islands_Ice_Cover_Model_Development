@@ -73,7 +73,7 @@ plot(c(1973:2022),tele$aug.waterTmp, type="l",axes=F)
 axis(3,c(1973:2022),tck=-0.03,labels=F)
 axis(3,seq(1975,2020,5))
 mtext("Temperature (\u00B0C)",4,line = 3)
-put.fig.letter("December Water Temp")
+put.fig.letter("August Water Temp")							## THIS WAS MISTAKENLY DECEMBER; FIXED 07 SEPT 2024 BY ADG
 axis(4)
 box()
 mtext("Selected Beta Model Variables",side=3,line=3)
