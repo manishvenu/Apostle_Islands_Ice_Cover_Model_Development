@@ -1,6 +1,6 @@
 # The Apostle Islands Ice Cover Model
 
-This repository contains the code and data used for the development of the Apostle Islands Ice Cover Model (APIM), the topic of the research paper currently under review in Geophysical Research Letters (GRL), "Combining satellite, teleconnection, and *in situ* data to improve understanding of multi-decadal coastal ice cover dynamics on Earth's largest lake".
+This repository contains the code and data used for the development of the Apostle Islands Ice Cover Model (APIM), the topic of the research paper in Earth and Space Science (ESS), "Combining Satellite, Teleconnection, and In Situ Data to Improve Understanding of Multi-Decadal Coastal Ice Cover Dynamics on Earth's Largest Freshwater Lake".
 
 The APIM is designed to forecast ice cover in the Apostle Islands region of the Great Lakes. It incorporates various teleconnections and local data to predict ice cover. This code represents the implementation of the model, along with the necessary data processing and analysis steps.
 
@@ -41,9 +41,7 @@ As of the current version, the code in this repository is fully functional and c
 
 1. Usage: It is important to provide the appropriate arguments and use the code as intended to ensure accurate results. The code does not currently include almost any error handling for invalid inputs. We recommend reading the paper to understand the correct usage.
 
-2. Code Comments and Documentation: There are inline comments and basic documentation, but there may be areas that require further clarification. We are  working on improving the comments and documentation to enhance code readability!
-
-3. Testing and Validation: The code has undergone testing by us. However, additional testing and validation by external users are not yet (rigorously) completed.
+2. Code Comments and Documentation: There are inline comments and basic documentation, but there may be areas that require further clarification. Please reach out with any questions.
 
 Please feel free to reach out if you have any questions or encounter any issues.
 
@@ -72,4 +70,4 @@ Major updates to the code were completed by this paper's authors: MV, AG, KK, & 
 
 ## Contact
 
-If you have any questions or feedback, please feel free to contact the corresponding author: drewgron@umich.edu. In case of GitHub(or R)-specific issues, contact manishrv@umich.edu
+If you have any questions or feedback, please feel free to contact the corresponding author: drewgron@umich.edu. In case of code-specific issues, contact manishrv@umich.edu
