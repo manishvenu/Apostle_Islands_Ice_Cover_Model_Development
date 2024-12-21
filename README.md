@@ -1,6 +1,13 @@
 # The Apostle Islands Ice Cover Model
 
-This repository contains the code and data used for the development of the Apostle Islands Ice Cover Model (APIM), the topic of the research paper in Earth and Space Science (ESS), "Combining Satellite, Teleconnection, and In Situ Data to Improve Understanding of Multi-Decadal Coastal Ice Cover Dynamics on Earth's Largest Freshwater Lake".
+This repository houses the code and data used to develop the Apostle Islands Ice Cover Model (APIM), featured in the research paper:
+
+
+Venumuddula, M., Kirchner, K., Chen, A., Rood, R. B., & Gronewold, A. D. (2024). Combining Satellite, Teleconnection, and In Situ Data to Improve Understanding of Multi‐Decadal Coastal Ice Cover Dynamics on Earth’s Largest Freshwater Lake. Earth and Space Science, 11(12). https://doi.org/10.1029/2024EA003845
+
+This work expands on earlier research and code presented in:
+
+Ji, X., Gronewold, A. D., Daher, H., & Rood, R. B. (2019). Modeling seasonal onset of coastal ice. Climatic Change, 154(1), 125–141. https://doi.org/10.1007/s10584-019-02400-1.
 
 The APIM is designed to forecast ice cover in the Apostle Islands region of the Great Lakes. It incorporates various teleconnections and local data to predict ice cover. This code represents the implementation of the model, along with the necessary data processing and analysis steps.
 
@@ -9,7 +16,7 @@ To get started with the Apostle Islands Ice Cover Model, please follow the steps
 
 ### Installation
 
-1. [Clone the Repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository): Begin by cloning this repository to your local machine. You can do this by clicking on the green "Code" button in the repo and following the steps there. If you have ssh, it'll look like this:
+1. [Clone the Repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository): Begin by cloning this repository to your local machine. You can do this by clicking on the green "Code" button in the repo and following the steps there. With ssh access, it'll look like this:
 ```
    git clone git@github.com:manishrv123/Apostle_Islands_Ice_Cover_Model_Development.git
 ```
@@ -64,9 +71,9 @@ Please explore the respective folders to access the necessary code, data, and ou
 
 ## Contributing
 
-The code is originally sourced from the 2015 original project: Ji, X., Gronewold, A. D., Daher, H., & Rood, R. B. (2019). Modeling seasonal onset of coastal ice. Climatic Change, 154 (1), 125–141. doi: 10.1007/s10584-019455-02400-1
+The code is originally sourced from the 2015 original project: Ji, X., Gronewold, A. D., Daher, H., & Rood, R. B. (2019). Modeling seasonal onset of coastal ice. Climatic Change, 154(1), 125–141. https://doi.org/10.1007/s10584-019-02400-1, and updated by the authors of this paper: Venumuddula, M., Kirchner, K., Chen, A., Rood, R. B., & Gronewold, A. D. (2024). Combining Satellite, Teleconnection, and In Situ Data to Improve Understanding of Multi‐Decadal Coastal Ice Cover Dynamics on Earth’s Largest Freshwater Lake. Earth and Space Science, 11(12). https://doi.org/10.1029/2024EA003845
 
-Major updates to the code were completed by this paper's authors: MV, AG, KK, & AC
+Major updates to the code were completed by this paper's authors: MV, AG, KK, AC, & RR
 
 ## Contact
 
